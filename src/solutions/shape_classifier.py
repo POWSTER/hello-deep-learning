@@ -1,3 +1,5 @@
+import os.path
+
 from fastbook import *
 from fastai.vision.widgets import *
 from fastai.data.block import DataBlock, CategoryBlock
@@ -16,6 +18,9 @@ dls = block.dataloaders(paths.IMAGES)
 
 learn = vision_learner(dls, resnet18, metrics=error_rate)
 learn.fine_tune(4)
+
+print(learn.predict(os.path.join(paths.IMAGES,'circles','circle_4.png')))
+print(learn.predict(os.path.join(paths.IMAGES,'rectangles','rectangle_4.png')))
 
 interp = ClassificationInterpretation.from_learner(learn)
 interp.plot_confusion_matrix()
