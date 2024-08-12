@@ -27,6 +27,8 @@ if __name__ == "__main__":
         "pleasant",
     ]
     negative_words = [
+        "sad",
+        "tragic",
         "terrible",
         "horrible",
         "awful",
